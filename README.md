@@ -84,6 +84,39 @@ pyinstaller --onefile --windowed pdf_transfer_app.py
 
 The resulting binary runs without a separate Python install.
 
+## Building Stand-alone Binaries
+
+The project works out-of-the-box with **PyInstaller**.
+
+<details>
+<summary><strong>Windows (x64)</strong></summary>
+
+```cmd
+pyinstaller ^
+  --noconsole --onefile ^
+  --name "Centerframe-PDF" ^
+  --icon "assets\centerframe_pdf.ico" ^
+  pdf_transfer_app.py
+```
+
+</details>
+
+<details>
+<summary><strong>macOS (Apple Silicon)</strong></summary>
+
+```bash
+pyinstaller \
+  --onefile --windowed \
+  --target-architecture arm64 \
+  --name "Centerframe-PDF" \
+  --icon "assets/centerframe_pdf.icns" \
+  pdf_transfer_app.py
+```
+
+</details>
+
+The generated executable is fully self-contained—no Python installation required for end-users.
+
 ---
 
 ## Contributing
