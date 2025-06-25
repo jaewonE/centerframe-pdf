@@ -1,0 +1,34 @@
+## Building Stand-alone Binaries
+
+The project works out-of-the-box with **PyInstaller**.
+
+<details>
+<summary><strong>Windows (x64)</strong></summary>
+
+```cmd
+pyinstaller ^
+  --noconsole --onefile ^
+  --name "HeicConverter" ^
+  --icon "assets\heic_converter.ico" ^
+  --collect-all pillow_heif ^
+  app.py
+```
+
+</details>
+
+<details>
+<summary><strong>macOS (Apple Silicon)</strong></summary>
+
+```bash
+pyinstaller \
+  --onefile --windowed \
+  --target-architecture arm64 \
+  --name "HeicConverter" \
+  --icon "assets/heic_converter.icns" \
+  --collect-all pillow_heif \
+  app.py
+```
+
+</details>
+
+The generated executable is fully self-contained—no Python installation required for end-users.
